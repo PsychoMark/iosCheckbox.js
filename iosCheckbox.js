@@ -35,6 +35,8 @@
 						// Update state
 						org_checkbox.prop('checked', false);
 					}
+
+                    org_checkbox.change();
 				});
 			});
         }
