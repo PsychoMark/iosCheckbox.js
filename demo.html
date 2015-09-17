@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>iosCheckbox demo</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="iosCheckbox.css"/>
+    <script src="iosCheckbox.min.js"></script>
+    <style type="text/css">
+    body
+    {
+      margin: 40px;
+    }
+
+    .panel-heading
+    {
+      font-weight: bold;
+    }
+
+    .slide-customcolor.checked
+    {
+    	-webkit-box-shadow: inset 0 0 0 36px fuchsia;
+    	box-shadow: inset 0 0 0 36px fuchsia;
+    }
+
+    .check-customcolor.checked
+    {
+      -webkit-box-shadow: inset 0 0 0 14px fuchsia;
+      box-shadow: inset 0 0 0 14px fuchsia;
+    }
+    </style>
+    <script>
+    $(function()
+    {
+      $('.ios').iosCheckbox();
+      $('.ios-check').iosCheckbox({ style: 'check' });
+    });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">Usage</div>
+        <div class="panel-body">
+          <p>Include the css</p>
+          <pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;iosCheckbox.css&quot; /&gt;</pre>
+
+          <p>Add some checkboxes to your page</p>
+          <pre>&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; checked /&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; /&gt;</pre>
+
+          <p>Load jQuery and iosCheckbox</p>
+          <pre>&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;iosCheckbox.min.js&quot;&gt;&lt;/script&gt;</pre>
+
+          <p>Transform all checkboxs with the class of ios</p>
+          <pre>&lt;script type=&quot;text/javascript&quot;&gt;
+$(function()
+{
+    $('.ios').iosCheckbox();
+});
+&lt;/script&gt;</pre>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Styles</div>
+        <div class="panel-body">
+          <p>The &lsquo;slide&rsquo; style is the default:</p>
+          <p><input type="checkbox" class="ios" checked /></p>
+
+          <p>
+            It is possible to specify an alternative style. By default, the
+            &lsquo;check&rsquo; style is included:
+          </p>
+
+          <p><input type="checkbox" class="ios-check" checked /></p>
+
+          <p>
+            There are two ways to specify a style for a checkbox. The first
+            one is as an option in the iosCheckbox() call, to apply the style
+            to all checkboxes in the &lsquo;ios&rsquo; selector.
+          </p>
+          <pre>&lt;script type=&quot;text/javascript&quot;&gt;
+$(function()
+{
+    $('.ios').iosCheckbox({ style: 'check' });
+});
+&lt;/script&gt;</pre>
+
+          <p>
+            Since the &lsquo;ios&rsquo; class is used only as a selector and is not
+            required for iosCheckbox to function, it is quite easy to set up two
+            different styles by using a second class, for example &lsquo;ios-check&rsquo;.
+          </p>
+
+          <pre>&lt;script type=&quot;text/javascript&quot;&gt;
+$(function()
+{
+    $('.ios').iosCheckbox();
+    $('.ios-check').iosCheckbox({ style: 'check' });
+});
+&lt;/script&gt;
+
+&lt;input type=&quot;checkbox&quot; class=&quot;ios-check&quot; /&gt;</pre>
+
+          <p>
+            The second method is to specify the style on individual elements
+            using a data-style attribute:
+          </p>
+
+          <pre>&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; data-style=&quot;check&quot; /&gt;</pre>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Custom CSS classes</div>
+        <div class="panel-body">
+          <p>
+            To customize the checkbox, like the color, you can provide
+            a &lsquo;class&rsquo; option to either the iosCheckbox() call, or through
+            a data-class attribute:
+          </p>
+
+          <p><input type="checkbox" class="ios" data-class="slide-customcolor" checked /></p>
+          <p><input type="checkbox" class="ios" data-class="check-customcolor" data-style="check" checked /></p>
+
+          <pre>&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; data-class=&quot;slide-customcolor&quot; /&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; data-class=&quot;check-customcolor&quot; data-style=&quot;check&quot; /&gt;</pre>
+
+          <p>
+            In this example, parts of the &lsquo;ios-ui-slide.checked&rsquo; and
+            &lsquo;ios-ui-check.checked&rsquo; styles from iosCheckbox.css have been
+            copied to change the properties related to the color:
+          </p>
+          <pre>.slide-customcolor.checked
+{
+  -webkit-box-shadow: inset 0 0 0 36px fuchsia;
+  box-shadow: inset 0 0 0 36px fuchsia;
+}
+
+.check-customcolor.checked
+{
+  -webkit-box-shadow: inset 0 0 0 14px fuchsia;
+  box-shadow: inset 0 0 0 14px fuchsia;
+}</pre>
+
+          <p>
+            Using the &lsquo;class&rsquo; option, the class is added to the iosCheckbox.
+            To introduce a completely new style it is useful to know the class attribute
+            of the iosCheckbox is set to 'ios-ui-[style]'.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Scripting</div>
+        <div class="panel-body">
+          <p>
+            When calling iosCheckbox(), your original &lt;input&gt; element is hidden and new iosCheckbox elements takes its place.
+            This is something to take into account when writing code or CSS that manipulates the checkbox.
+          </p>
+
+          <p>
+            iosCheckbox provides some compatibility out of the box:
+
+            <ul>
+              <li>The &lsquo;checked&rsquo; state is synchronized between the original checkbox and the iosCheckbox.</li>
+              <li>The &lsquo;change&rsquo; event is triggered on the original checkbox when clicking the iosCheckbox.</li>
+            </ul>
+
+            <p>This also ensures &lt;label&gt; tags in forms work as intended:</p>
+
+            <label for="exampleSlide">Form label example (click here to toggle) </label><br />
+            <input type="checkbox" class="ios" id="exampleSlide" />
+
+            <pre style="margin-top: 1em">&lt;label for=&quot;exampleSlide&quot;&gt;Form label example (click here to toggle) &lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; id=&quot;exampleSlide&quot; /&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
