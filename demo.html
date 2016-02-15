@@ -155,7 +155,7 @@ $(function()
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading">Scripting</div>
+        <div class="panel-heading">Attributes and scripting</div>
         <div class="panel-body">
           <p>
             When calling iosCheckbox(), your original &lt;input&gt; element is hidden and new iosCheckbox elements takes its place.
@@ -164,20 +164,31 @@ $(function()
 
           <p>
             iosCheckbox provides some compatibility out of the box:
+          </p>
 
-            <ul>
-              <li>The &lsquo;checked&rsquo; state is synchronized between the original checkbox and the iosCheckbox.</li>
-              <li>The &lsquo;change&rsquo; event is triggered on the original checkbox when clicking the iosCheckbox.</li>
-            </ul>
+          <ul>
+            <li>The &lsquo;checked&rsquo; state is synchronized between the original checkbox and the iosCheckbox.</li>
+            <li>The &lsquo;change&rsquo; event is triggered on the original checkbox when clicking the iosCheckbox.</li>
+          </ul>
 
-            <p>This also ensures &lt;label&gt; tags in forms work as intended:</p>
+          <p>This also ensures &lt;label&gt; tags in forms work as intended:</p>
 
-            <label for="exampleSlide">Form label example (click here to toggle) </label><br />
-            <input type="checkbox" class="ios" id="exampleSlide" />
+          <label for="exampleSlide">Form label example (click here to toggle) </label><br />
+          <input type="checkbox" class="ios" id="exampleSlide" />
 
-            <pre style="margin-top: 1em">&lt;label for=&quot;exampleSlide&quot;&gt;Form label example (click here to toggle) &lt;/label&gt;
+          <pre style="margin-top: 1em">&lt;label for=&quot;exampleSlide&quot;&gt;Form label example (click here to toggle) &lt;/label&gt;
 &lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; id=&quot;exampleSlide&quot; /&gt;</pre>
-          </div>
+
+
+          <p>
+            The iosCheckbox responds to the readonly attribute and not allows click. Note that just setting readonly will not block changes to the original checkbox via scripting or form labels. Either don't have a label tag or adding the disabled attribute as well should work.
+          </p>
+
+          <pre style="margin-top: 1em">&lt;input type=&quot;checkbox&quot; class=&quot;ios&quot; data-style=&quot;check&quot; disabled readonly checked /&gt;
+Try me!</pre>
+
+          <input type="checkbox" class="ios" data-style="check" disabled readonly checked id="exampleReadonly" />
+          <label for="exampleReadonly">Try me!</label>
         </div>
       </div>
     </div>

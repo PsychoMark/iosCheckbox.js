@@ -7,7 +7,6 @@
  *
  * Fork by: Mark van Renswoude
  */
-
 (function($)
 {
     $.fn.extend(
@@ -18,10 +17,14 @@
           {
             var data = $(element).data(name);
             if (data)
+            {
               return data;
+            }
 
             if (typeof options !== 'undefined' && options[name])
+            {
               return options[name];
+            }
 
             return defaultValue;
           }
@@ -43,7 +46,9 @@
             // Determine if we've been here before...
             // For now modifications aren't supported, but this would be the place to add it.
             if (org_checkbox.data('iosCheckboxified'))
+            {
               return;
+            }
 
             var style = getParameter(org_checkbox, 'style', 'slide');
             var extraClass = getParameter(org_checkbox, 'class', null);
@@ -52,27 +57,39 @@
             var ios_checkbox = $('<div>', { class: 'ios-ui-' + style }).append($('<div>', { class: 'inner' }));
 
             if (org_checkbox.is(':checked'))
+            {
               ios_checkbox.addClass('checked');
+            }
 
             if (extraClass)
+            {
               ios_checkbox.addClass(extraClass);
+            }
 
             // Capture changes to the original checkbox to support
             // <label for="[org_checkbox id]"> tags
             org_checkbox.change(function()
             {
               if (org_checkbox.is(':checked') != ios_checkbox.hasClass('checked'))
+              {
                 toggle(org_checkbox, ios_checkbox);
-            })
+              }
+            });
 
             // Hide the original checkbox
             org_checkbox.hide().after(ios_checkbox);
 
-            ios_checkbox.click(function()
+            var attr = org_checkbox.attr('readonly');
+            var readonly = (typeof attr !== typeof undefined && attr !== false);
+
+            if (!readonly)
             {
-              toggle(org_checkbox, ios_checkbox);
-				    });
-			    });
+              ios_checkbox.click(function()
+              {
+                toggle(org_checkbox, ios_checkbox);
+              });
+            }
+          });
         }
-    });
+      });
 })(jQuery);
